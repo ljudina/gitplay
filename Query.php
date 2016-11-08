@@ -198,7 +198,7 @@ class Query implements ExpressionInterface, IteratorAggregate
         $this->_iterator = $this->_decorateStatement($statement);
         $this->_dirty = false;
 
-        return $this->_iterator;
+        return $this->_iterator && $this->_dirty;
     }
 
     /**
