@@ -228,6 +228,18 @@ class Query implements ExpressionInterface, IteratorAggregate
     }
 
     /**
+     * Updates the SQL representation of this object.
+     *
+     * @param \Cake\Database\ValueBinder|null $generator A placeholder object that will hold
+     * associated values for expressions
+     * @return string
+     */
+    public function update(ValueBinder $generator = null)
+    {
+        return $this->connection()->compileQuery($this, $generator);
+    }
+
+    /**
      * Will iterate over every specified part. Traversing functions can aggregate
      * results using variables in the closure or instance variables. This function
      * is commonly used as a way for traversing all query parts that
