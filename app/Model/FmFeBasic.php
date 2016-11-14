@@ -137,7 +137,7 @@ class FmFeBasic extends AppModel{
             $this->data['FmFeBasic']['previous_balance_currency'] = number_format((float)$this->data['FmFeBasic']['previous_balance_currency'], 2, '.', '');
         }
         if(!empty($this->data['FmFeBasic']['previous_balance_rsd'])){
-            $this->data['FmFeBasic']['previous_balance_rsd'] = number_format((float)$this->data['FmFeBasic']['previous_balance_rsd'], 2, '.', '');
+            $this->data['FmFeBasic']['previous_balance_rsd'] = number_format((float)$this->data['FmFeBasic']['previous_balance_rsd'], 3, '.', '');
         }
 
         return true;
@@ -169,7 +169,7 @@ class FmFeBasic extends AppModel{
         if(!empty($this->data['FmFeBasic']['id'])){
             $conditions['NOT'] = array('FmFeBasic.id' => $this->data['FmFeBasic']['id']);
         }        
-        $exists = $this->find('count', array('conditions' => $conditions));
+        $exists = $this->find('count', array('conditions' => $conditions), 'recursive' => -1);
         return ($exists > 0) ? false : true;
     }//~!
 
